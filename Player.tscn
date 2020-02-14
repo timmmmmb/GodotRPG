@@ -1,19 +1,43 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/images/Players/Player Blue/playerBlue_walk2.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/Players/Player Blue/playerBlue_walk3.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/Players/Player Blue/playerBlue_walk1.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/Players/Player Blue/playerBlue_walk5.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/Players/Player Blue/playerBlue_walk4.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/Players/Player Blue/playerBlue_up1.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/Players/Player Blue/playerBlue_up2.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/Players/Player Blue/playerBlue_up3.png" type="Texture" id=8]
+[ext_resource path="res://Player.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "default",
-"speed": 5.0
+"name": "right",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "up",
+"speed": 10.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
+radius = 23.5305
+height = 7.15611
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 7.85468, 5.97002 )
+collision_layer = 3
+script = ExtResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+animation = "up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
