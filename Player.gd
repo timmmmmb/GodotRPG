@@ -38,4 +38,3 @@ func _physics_process(delta):
 	elif velocity.y < 0:
 		$AnimatedSprite.animation = "up"
 	velocity = move_and_slide(velocity, Vector2(0, -1))
-	
