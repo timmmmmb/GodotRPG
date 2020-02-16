@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Spike.tscn" type="PackedScene" id=1]
+
+[node name="LongSpike" type="Node2D"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spike" parent="." instance=ExtResource( 1 )]
+position = Vector2( -96, 0 )
+
+[node name="Spike2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -32, 0 )
+
+[node name="Spike3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, 0 )
+
+[node name="Spike4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 96, 0 )

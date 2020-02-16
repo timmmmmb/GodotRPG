@@ -6,6 +6,8 @@ export (int) var gravity = 2400
 
 var velocity = Vector2()
 var jumping = false
+var dead = false
+export var respawnPosition = Vector2(0,0)
 
 func get_input():
 	velocity.x = 0
@@ -22,6 +24,8 @@ func get_input():
 		velocity.x -= run_speed
 
 func _physics_process(delta):
+	if dead:
+		return
 	get_input()
 	velocity.y += gravity * delta
 	if jumping and is_on_floor():
@@ -33,8 +37,19 @@ func _physics_process(delta):
 	if velocity.x != 0:
 		$AnimatedSprite.animation = "right"
 		$AnimatedSprite.flip_v = false
-		# See the note below about boolean assignment
 		$AnimatedSprite.flip_h = velocity.x < 0
 	elif velocity.y < 0:
 		$AnimatedSprite.animation = "up"
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+	
+func die():
+	$DeathSound.play()
+	dead = true
+	visible = false
+	$CollisionShape2D.disabled = true
+
+func restart():
+	position = respawnPosition
+	dead = false
+	visible = true
+	$CollisionShape2D.disabled = false

@@ -5,4 +5,4 @@ func _process(_delta):
 		restart()
 
 func restart():
-	$Player.position = $SpawnPoint.position
+	$Player.restart()
