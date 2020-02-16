@@ -8,6 +8,7 @@ var velocity = Vector2()
 var jumping = false
 var dead = false
 export var respawnPosition = Vector2(0,0)
+var score = 0
 
 func get_input():
 	velocity.x = 0
@@ -53,3 +54,8 @@ func restart():
 	dead = false
 	visible = true
 	$CollisionShape2D.disabled = false
+	
+func increaseScore():
+	score += 1
+	$HUD.update_score(score)
+

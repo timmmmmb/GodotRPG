@@ -6,3 +6,6 @@ func _process(_delta):
 
 func restart():
 	$Player.restart()
+
+func _on_HUD_start_game():
+	restart()
