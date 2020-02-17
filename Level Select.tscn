@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/fontBig.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/images/Backgrounds/set2_background.png" type="Texture" id=2]
+[ext_resource path="res://Level Select.gd" type="Script" id=3]
+
+[node name="Level Select" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 512, 304 )
+scale = Vector2( 1.6, 1.25 )
+texture = ExtResource( 2 )
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -74.0
+margin_top = -60.0
+margin_right = 74.0
+margin_bottom = 60.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level01" type="Button" parent="GridContainer"]
+margin_right = 64.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 1 )
+text = "01"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level02" type="Button" parent="GridContainer"]
+margin_left = 84.0
+margin_right = 148.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 1 )
+text = "02"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level03" type="Button" parent="GridContainer"]
+margin_top = 70.0
+margin_right = 64.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 1 )
+text = "03"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level04" type="Button" parent="GridContainer"]
+margin_left = 84.0
+margin_top = 70.0
+margin_right = 148.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 1 )
+text = "04"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="GridContainer/Level01" to="." method="_on_Level01_pressed"]
+[connection signal="pressed" from="GridContainer/Level02" to="." method="_on_Level02_pressed"]
+[connection signal="pressed" from="GridContainer/Level03" to="." method="_on_Level03_pressed"]
+[connection signal="pressed" from="GridContainer/Level04" to="." method="_on_Level04_pressed"]
