@@ -67,11 +67,7 @@ position = Vector2( 11744, 1760 )
 
 [node name="Sign3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2784, 360 )
-message = "This flag sets your spawn Point"
-
-[node name="Sign4" parent="." instance=ExtResource( 6 )]
-position = Vector2( 3120, 360 )
-message = "If you die use R to respawn"
+message = "This flag sets your spawn Point if you die you respawn here"
 
 [node name="VeryLongSpike" parent="." instance=ExtResource( 7 )]
 position = Vector2( -384, 1008 )
@@ -397,8 +393,9 @@ stream = ExtResource( 4 )
 autoplay = true
 
 [node name="HUD" parent="Player" instance=ExtResource( 10 )]
-position = Vector2( -260, -260 )
+position = Vector2( -417.5, -277 )
 
 [node name="Score" type="Timer" parent="."]
 autostart = true
 [connection signal="start_game" from="Player/HUD" to="." method="_on_HUD_start_game"]
+[connection signal="timeout" from="Score" to="." method="_on_Score_timeout"]

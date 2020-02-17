@@ -26,4 +26,4 @@ func _on_MessageTimer_timeout():
 	$MessageLabel.hide()
 	
 func setTime(time):
-	$Time.text = time
+	$Time.text = str(time)
