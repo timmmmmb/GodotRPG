@@ -47,3 +47,7 @@ current = true
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
+
+[node name="Respawn" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="Respawn" to="." method="_on_Respawn_timeout"]

@@ -398,4 +398,7 @@ autoplay = true
 
 [node name="HUD" parent="Player" instance=ExtResource( 10 )]
 position = Vector2( -260, -260 )
+
+[node name="Score" type="Timer" parent="."]
+autostart = true
 [connection signal="start_game" from="Player/HUD" to="." method="_on_HUD_start_game"]

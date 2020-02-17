@@ -48,6 +48,7 @@ func die():
 	dead = true
 	visible = false
 	$CollisionShape2D.disabled = true
+	$Respawn.start()
 
 func restart():
 	position = respawnPosition
@@ -58,4 +59,6 @@ func restart():
 func increaseScore():
 	score += 1
 	$HUD.update_score(score)
-
+	
+func _on_Respawn_timeout():
+	restart()
